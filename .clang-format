@@ -1,0 +1,23 @@
+# 使用更底层的 LLVM 风格作为基础，它更可控
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 120
+# 使用 GNU 风格的指针对齐，通常更符合C语言习惯
+PointerAlignment: Right
+# 核心：关闭所有自动换行，完全手动控制
+BreakBeforeBraces: Custom
+BraceWrapping:
+  # 这是我们最关心的：函数定义后换行
+  AfterFunction: true
+  # 控制语句（if/for/while等）后不换行
+  AfterControlStatement: Never
+  # 其他情况可以都设为 false 或按喜好调整
+  AfterClass: false
+  AfterStruct: false
+  AfterEnum: false
+  AfterNamespace: false
+# 禁止短控制语句写在一行
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false

@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/29254/Desktop/SPACE/005TEST/005TEST/build/Debug/cmake_install.cmake",
+		"C:/Users/29254/Desktop/SPACE/005TEST/005TEST/build/Debug/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
