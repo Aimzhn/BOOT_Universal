@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/29254/Desktop/SPACE/005TEST/005TEST
+# Install script for directory: C:/Users/29254/Desktop/SPACE/Boot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/005TEST")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/BOOT")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,13 +39,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/29254/Desktop/SPACE/005TEST/005TEST/build/Debug/cmake/stm32cubemx/cmake_install.cmake")
+  include("C:/Users/29254/Desktop/SPACE/Boot/build/Debug/cmake/stm32cubemx/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/29254/Desktop/SPACE/005TEST/005TEST/build/Debug/install_local_manifest.txt"
+  file(WRITE "C:/Users/29254/Desktop/SPACE/Boot/build/Debug/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -61,6 +61,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/29254/Desktop/SPACE/005TEST/005TEST/build/Debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/29254/Desktop/SPACE/Boot/build/Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

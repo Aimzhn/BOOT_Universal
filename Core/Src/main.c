@@ -24,9 +24,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "../Inc/dd/ddboot.h"
-#include "../Inc/dd/ddbootpro.h"
-#include "../Inc/dd/ddflashops.h"
+#include "../Inc/iap/bootloader.h"
+#include "../Inc/iap/iap_protocol.h"
+#include "../Inc/iap/flash_operations.h"
 #include <stdint.h>
 
 /* USER CODE END Includes */

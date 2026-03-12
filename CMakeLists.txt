@@ -19,7 +19,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME 005TEST)
+set(CMAKE_PROJECT_NAME BOOT)
 
 # Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
@@ -46,16 +46,16 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-   ${CMAKE_CURRENT_LIST_DIR}/Core/Src/dd/bootloader.c
-    ${CMAKE_CURRENT_LIST_DIR}/Core/Src/dd/flash_operations.c
-    ${CMAKE_CURRENT_LIST_DIR}/Core/Src/dd/crc.c
+   ${CMAKE_CURRENT_LIST_DIR}/Core/Src/iap/bootloader.c
+    ${CMAKE_CURRENT_LIST_DIR}/Core/Src/iap/flash_operations.c
+    ${CMAKE_CURRENT_LIST_DIR}/Core/Src/iap/crc.c
   
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
-     ${CMAKE_CURRENT_LIST_DIR}/Core/Inc/dd
+     ${CMAKE_CURRENT_LIST_DIR}/Core/Inc/iap
 )
 
 # Add project symbols (macros)
@@ -74,14 +74,14 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 )
 
 
-# 添加生成 HEX 文件的 custom target
+# add new custom target for generating HEX file
 add_custom_target(${CMAKE_PROJECT_NAME}.hex ALL
     DEPENDS ${CMAKE_PROJECT_NAME}
     COMMAND ${CMAKE_OBJCOPY} -O ihex "$<TARGET_FILE:${CMAKE_PROJECT_NAME}>" "${CMAKE_PROJECT_NAME}.hex"
     COMMENT "Generating HEX file: ${CMAKE_PROJECT_NAME}.hex"
 )
 
-# 添加生成 BIN 文件的 custom target
+# add new custom target for generating BIN file
 add_custom_target(${CMAKE_PROJECT_NAME}.bin ALL
     DEPENDS ${CMAKE_PROJECT_NAME}
     COMMAND ${CMAKE_OBJCOPY} -O binary "$<TARGET_FILE:${CMAKE_PROJECT_NAME}>" "${CMAKE_PROJECT_NAME}.bin"
