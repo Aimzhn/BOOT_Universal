@@ -15,8 +15,8 @@
  ******************************************************************************
  */
 
-#ifndef _DD_BOOTLOADER_PROTOCOL_H
-#define _DD_BOOTLOADER_PROTOCOL_H
+#ifndef IAP_PROTOCOL_H
+#define IAP_PROTOCOL_H
 
 /* Include Headers */
 #include "stdbool.h"
@@ -155,4 +155,4 @@ typedef struct {
 
 #pragma pack(pop)
 
-#endif // _DD_BOOTLOADER_PROTOCOL_H
+#endif // IAP_PROTOCOL_H
