@@ -16,9 +16,10 @@
  ******************************************************************************
  */
 
-#include "../../Core/Inc/iap/bootloader.h"
 #include "../../Core/Inc/iap/flash_operations.h"
+#include "../../Core/Inc/iap/bootloader.h"
 #include "stm32f1xx_hal.h"
+
 
 // Flash unlock
 void Flash_Unlock(void)
@@ -168,6 +169,8 @@ bool Verify_Application(uint32_t app_start_address)
 
     return true;
 }
+// 功能正常的版本
+/*
 
 void JumpTo_Application(uint32_t address)
 {
@@ -192,6 +195,39 @@ void JumpTo_Application(uint32_t address)
     while (1)
         ;
 }
+*/
+void JumpTo_Application(uint32_t address)
+{
+    typedef void (*pFunction)(void);
+    pFunction jump;
+
+    uint32_t appStack = *(volatile uint32_t *)address;
+    uint32_t appEntry = *(volatile uint32_t *)(address + 4);
+
+    __disable_irq();
+
+    SysTick->CTRL = 0;
+    SysTick->LOAD = 0;
+    SysTick->VAL = 0;
+
+    for (int i = 0; i < 8; i++) {
+        NVIC->ICER[i] = 0xFFFFFFFF;
+        NVIC->ICPR[i] = 0xFFFFFFFF;
+    }
+
+    HAL_RCC_DeInit();
+    HAL_DeInit();
+
+    SCB->VTOR = address;
+    __set_MSP(appStack);
+
+    jump = (pFunction)appEntry;
+    jump();
+
+    while (1)
+        ;
+}
+
 // Check if Flash region is erased
 bool Flash_IsErased(uint32_t address, uint32_t length)
 {
